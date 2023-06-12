@@ -51,4 +51,7 @@ src="<?=base_url()?>/_assets/modules/datatables/Select-1.2.4/js/dataTables.selec
 <!-- Page Specific JS File -->
 <script src="<?=base_url()?>/_assets/js/page/index.js"></script>
 </body>
+<?php
+mysqli_close($con);
+?>
 </html>

@@ -69,9 +69,15 @@ if(!isset($_SESSION['username'])) {
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
                     <i class="fas fa-columns"></i>
-                    <span>List IP</span>
+                    <span>Ip address</span>
                 </a>
                 <ul class="dropdown-menu">
+                    <li>
+                        <a class="nav-link" href="../ip/index.php">List IP</a>
+                    </li>
+                    <!-- <li>
+                        <a class="nav-link" href="../mahasiswa/create.php">Tambah Segment</a>
+                    </li> -->
                     <li>
                     <?php
                         $query = "SHOW TABLES LIKE 's%' ";
@@ -80,51 +86,50 @@ if(!isset($_SESSION['username'])) {
                         if (mysqli_num_rows($result) > 0) {
                             // echo '<ul class="sidebar">';
                             while ($row = mysqli_fetch_row($result)) {
-                                echo '<a class="nav-link" href="../segment/index.php">' . $row[0] . '</a>';
+                                echo '<a class="nav-link" href="../segment/index.php?segment='. $row[0] .'">' . $row[0] . '</a>';
                             }
                             echo '</ul>';
                             } else {
                                 echo 'No tables found.';
                             }
 
-                            mysqli_close($con);
+                            
                             ?>
 
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                            <i class="fas fa-columns"></i>
-                            <span>Segment</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="nav-link" href="../segment/form_create.php">Tambah Segment</a>
-                            </li>
-                        </ul>
-                    </li>
 
-                    <!-- </li> <li class="dropdown"> <a href="#" class="nav-link has-dropdown"
-                    data-toggle="dropdown"> <i class="fas fa-columns"></i> <span>List Segment</span>
-                    </a> <ul class="dropdown-menu"> </li> </ul> -->
-                    <!-- <li> <a class="nav-link" href="../ip/index.php">List IP</a> </li> -->
-                    <!-- <li class="dropdown"> <a href="#" class="nav-link has-dropdown"
-                    data-toggle="dropdown"> <i class="fas fa-columns"></i> <span>Mahasiswa</span>
-                    </a> <ul class="dropdown-menu"> <li> <a class="nav-link"
-                    href="../mahasiswa/index.php">List</a> </li> <li> <a class="nav-link"
-                    href="../mahasiswa/create.php">Tambah Data</a> </li> </ul> </li> <li
-                    class="dropdown"> <a href="#" class="nav-link has-dropdown"
-                    data-toggle="dropdown"> <i class="fas fa-columns"></i> <span>Mata Kuliah</span>
-                    </a> <ul class="dropdown-menu"> <li> <a class="nav-link"
-                    href="../matakuliah/index.php">List</a> </li> <li> <a class="nav-link"
-                    href="../matakuliah/create.php">Tambah Data</a> </li> </ul> </li> <li
-                    class="dropdown"> <a href="#" class="nav-link has-dropdown"
-                    data-toggle="dropdown"> <i class="fas fa-columns"></i> <span>Nilai</span> </a>
-                    <ul class="dropdown-menu"> <li> <a class="nav-link"
-                    href="../nilai/index.php">List</a> </li> <li> <a class="nav-link"
-                    href="../nilai/create.php">Tambah Data</a> </li> </ul> </li> -->
-                </ul>
-            </aside>
-        </div>
-        <?php
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+                        <i class="fas fa-columns"></i>
+                        <span>Segment</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="nav-link" href="../segment/create.php">Tambah Segment</a>
+                        </li>
+
+                        <!-- </li> <li class="dropdown"> <a href="#" class="nav-link has-dropdown"
+                        data-toggle="dropdown"> <i class="fas fa-columns"></i> <span>List Segment</span>
+                        c -->
+                        <!-- <li class="dropdown"> <a href="#" class="nav-link has-dropdown"
+                        data-toggle="dropdown"> <i class="fas fa-columns"></i> <span>Mahasiswa</span>
+                        </a> <ul class="dropdown-menu"> <li> <a class="nav-link"
+                        href="../mahasiswa/index.php">List</a> </li> <li> <a class="nav-link"
+                        href="../mahasiswa/create.php">Tambah Data</a> </li> </ul> </li> <li
+                        class="dropdown"> <a href="#" class="nav-link has-dropdown"
+                        data-toggle="dropdown"> <i class="fas fa-columns"></i> <span>Mata Kuliah</span>
+                        </a> <ul class="dropdown-menu"> <li> <a class="nav-link"
+                        href="../matakuliah/index.php">List</a> </li> <li> <a class="nav-link"
+                        href="../matakuliah/create.php">Tambah Data</a> </li> </ul> </li> <li
+                        class="dropdown"> <a href="#" class="nav-link has-dropdown"
+                        data-toggle="dropdown"> <i class="fas fa-columns"></i> <span>Nilai</span> </a>
+                        <ul class="dropdown-menu"> <li> <a class="nav-link"
+                        href="../nilai/index.php">List</a> </li> <li> <a class="nav-link"
+                        href="../nilai/create.php">Tambah Data</a> </li> </ul> </li> -->
+                    </ul>
+                </aside>
+            </div>
+            <?php
 }
 ?>

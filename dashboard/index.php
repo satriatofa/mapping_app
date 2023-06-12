@@ -1,9 +1,10 @@
 <?php
 require_once '../_top.php';
 require_once '../_config/config.php';
+$segment = $_GET['segment']; 
 
-$ip1 = mysqli_query($con, "SELECT COUNT(*) FROM tab_ip WHERE status='open'");
-$ip2 = mysqli_query($con, "SELECT COUNT(*) FROM tab_ip WHERE status='close'");
+$ip1 = mysqli_query($con, "SELECT COUNT(*) FROM $segment WHERE status='open'");
+$ip2 = mysqli_query($con, "SELECT COUNT(*) FROM $segment WHERE status='close'");
 // $dosen = mysqli_query($connection, "SELECT COUNT(*) FROM dosen");
 // $matakuliah = mysqli_query($connection, "SELECT COUNT(*) FROM matakuliah");
 // $nilai = mysqli_query($connection, "SELECT COUNT(*) FROM nilai");

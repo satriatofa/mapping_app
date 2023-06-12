@@ -1,7 +1,8 @@
 <?php
 include_once'../_top.php';
 include_once'../_header.php'; 
-include_once'../_config/config.php'; 
+include_once'../_config/config.php';
+$segment = $_GET['segment']; 
 ?>
 
 <section class="section">
@@ -19,17 +20,17 @@ include_once'../_config/config.php';
                                 <tr>
                                     <th>No</th>
                                     <th>Ip Address</th>
-                                    <th>Segment</th>
+                                    <th>Status</th>
                                     <!-- <th>Status</th>
                                     <th>Updater</th>
                                     <th>Keterangan</th> -->
-                                    <th style="width: 100" colspan="2">Aksi</th>
+                                    <!-- <th style="width: 100" colspan="2">Aksi</th> -->
                                 </tr>
                             </thead>
                             <tbody>
                             <?php
-                            $tableName = "segment$segment";
-                            $sql = "SELECT * FROM `" . $tableName . "`";
+                            
+                            $sql = "SELECT * FROM $segment";
 
                             // Menjalankan pernyataan SQL dan mengambil hasilnya
                             $result = $con->query($sql);
@@ -39,40 +40,26 @@ include_once'../_config/config.php';
                             // Menampilkan data untuk setiap baris
                             while ($row = $result->fetch_assoc()) {
                             // Akses data kolom menggunakan nama kolom
+                            $no = 1;
                             $col1Value = $row["ip_address"];
-                            // $col2Value = $row["kolom2"];
+                            $col2Value = $row["status"];
 
                             // Lakukan sesuatu dengan nilai-nilai kolom
-                            echo "Kolom 1: " . $col1Value . "<br>";
+                            // echo "Kolom 1: " . $col1Value . "<br>";
+                            // echo "Kolom 2: " . $col2Value . "<br>";
+                            echo "<tr>
+                                   <td>$no</td>
+                                   <td>$col1Value</td>
+                                   <td>$col2Value</td>        
+                                </tr>";
+                                $no++;
                             }
                             } else {
                                 echo "Tidak ada data dalam tabel.";
-                            }
+                            }?>
 
 
-                // $segment = $_POST["segment"];
-                // $no = 1;
-                // $tampil = mysqli_query($con,"SELECT * FROM 'segment$segment'"); 
-                // while ($data = mysqli_fetch_array($tampil)) {
-                //   echo "
-                //   <tr>
-                //       <td>$no</td>
-                //       <td>$data[ip_address]</td>
-                //       <td>$data[nomor_segment]</td>
-                //       <td>$data[status]</td>
-                //       <td>$data[nama_lengkap]</td>
-                //       <td>$data[keterangan]</td>
-                //       <td> 
-                //         <a class='btn btn-sm btn-danger mb-md-0 mb-1'
-                //           href='?delete=$data[id]'
-                //           onClick=\"return confirm('Yakin akan menghapus data?');\">
-                //         <i class='fas fa-trash fa-fw'></i>
-                //         <a class='btn btn-sm btn-info'
-                //           href='edit.php?edit=$data[id]'>
-                //         <i class='fas fa-edit fa-fw'></i>
-                //   </tr>";
-                //   $no++;
-                ?>
+                
                             </tbody>
                         </table>
                     </div>
