@@ -11,7 +11,7 @@ if(isset($_SESSION['username'])) {
         <meta
             content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
             name="viewport">
-        <title>Login - ADM IP</title>
+        <title>Login - MAPPING IP</title>
         <link href="<?=base_url()?>/_assets/img/infomediaicon.png" rel='shortcut icon'>
         <!-- General CSS Files -->
         <link
